@@ -6,14 +6,18 @@ import ViewAgendaIcon from '@material-ui/icons/ViewAgenda';
 import RadioButtonUncheckedIcon from '@material-ui/icons/RadioButtonUnchecked';
 import PersonOutlineIcon from '@material-ui/icons/PersonOutline';
 import InboxIcon from '@material-ui/icons/Inbox';
-import ChatBubbleIcon from '@material-ui/icons/ChatBubble';
+import ChatBubbleOutlineIcon from '@material-ui/icons/ChatBubbleOutline';
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 import PowerSettingsNewIcon from '@material-ui/icons/PowerSettingsNew';
+import Requests from './Requests';
 function App(){
   const classes = useStyles();
   const [requests, setRequests] = useState(false);
   const [users, setUsers] = useState(false);
   const [orders, setOrders] = useState(false);
+  const [boxes, setBoxes] = useState(false);
+  const [settings, setSettings] = useState(false);
+  const [picture, setPicture] = useState(false);
   const handleRequests = () => {
   if (requests) {
     setRequests(false);
@@ -38,27 +42,62 @@ function App(){
       setOrders(true);
     }
   }
+  const handleBoxes = () => {
+    if (boxes) {
+      setBoxes(false);
+    }
+    else {
+      setBoxes(true);
+    }
+  }
+  const handleSettings = () => {
+    if (settings) {
+      setSettings(false);
+    }
+    else {
+      setSettings(true);
+    }
+  }
+  const handleImage = () => {
+    if (picture) {
+      setPicture(false);
+    }
+    else {
+      setPicture(true);
+    }
+  }
   return (
       <div className={classes.container}>
         <div className={classes.card} >
           <span className={classes.title}>xo.</span>
           <div className={classes.rowContainer}>
-             <img src={photo}/> 
+            {!picture &&
+             <img src={photo} onClick={handleImage}/> 
+            }
+             {picture &&
+             <img src={photo} onClick={handleImage}  style={{border: '1px solid #0A47C4', borderRadius: 30}}/> 
+            }
              <div className={classes.nameContainer}>
              <span>Ahmed Reda</span>
              <span className={classes.id}>#1253724</span>
              </div>
           </div>
           <div className={classes.rowContainer}>
-            <DashboardIcon/>
-            <span style={{marginLeft: 20}}>Dashboard</span>
+            <DashboardIcon style={{color: '#C2CFE0'}}/>
+            <span style={{marginLeft: 20, color: '#334D6E'}}>Dashboard</span>
           </div>
+          {!requests &&
           <div className={classes.rowContainer} style={{cursor: 'pointer'}} onClick={handleRequests}>
-            <ViewAgendaIcon/>
-            <span style={{marginLeft: 20}}>Requests</span>
+            <ViewAgendaIcon style={{color: '#C2CFE0'}}/>
+            <span style={{marginLeft: 20, color: '#334D6E'}}>Requests</span>
             </div>
+          } 
             {requests && 
                 <div>
+                    <div className={classes.rowContainer} style={{cursor: 'pointer'}} onClick={handleRequests}>
+                      <ViewAgendaIcon style={{color: '#0A47C4'}}/>
+                      <span style={{marginLeft: 20, color: '#0A47C4'}}>Requests</span>
+                      </div>
                 <div className={classes.subRow}>
                   <div>
                   <RadioButtonUncheckedIcon style={{color: '#FFB946'}} />
@@ -74,12 +113,18 @@ function App(){
               </div>
               </div>
             }
+            {!users &&
           <div className={classes.rowContainer} style={{cursor: 'pointer'}} onClick={handleUsers}>
-            <PersonOutlineIcon/>
-            <span style={{marginLeft: 20}}>Users</span>
+            <PersonOutlineIcon style={{color: '#C2CFE0'}}/>
+            <span style={{marginLeft: 20, color: '#334D6E'}}>Users</span>
             </div>
+            }
             {users &&
               <div>
+                 <div className={classes.rowContainer} style={{cursor: 'pointer'}} onClick={handleUsers}>
+            <PersonOutlineIcon style={{color: '#0A47C4'}}/>
+            <span style={{marginLeft: 20, color: '#0A47C4'}}>Users</span>
+            </div>
                 <div className={classes.subRow}>
                   <div>
                   <RadioButtonUncheckedIcon style={{color: '#FFB946'}}/>
@@ -112,17 +157,31 @@ function App(){
                 </div>
               </div>
             }
-             <div className={classes.rowContainer} style={{cursor: 'pointer'}}>
-            <InboxIcon/>
-            <span style={{marginLeft: 20}}>Boxes</span>
+            {!boxes &&
+             <div className={classes.rowContainer} style={{cursor: 'pointer'}} onClick={handleBoxes}>
+            <InboxIcon style={{color: '#C2CFE0'}}/>
+            <span style={{marginLeft: 20, color: '#334D6E'}}>Boxes</span>
             </div>
+            }
+             {boxes &&
+             <div className={classes.rowContainer} style={{cursor: 'pointer'}} onClick={handleBoxes}>
+            <InboxIcon style={{color: '#0A47C4'}}/>
+            <span style={{marginLeft: 20, color: '#0A47C4'}}>Boxes</span>
+            </div>
+            }
+            {!orders &&
             <div className={classes.rowContainer} style={{cursor: 'pointer'}} onClick={handleOrders}>
-            <ChatBubbleIcon/>
-            <span style={{marginLeft: 20}}>Orders</span>
+            <ChatBubbleOutlineIcon style={{color: '#C2CFE0'}}/>
+            <span style={{marginLeft: 20, color: '#334D6E'}}>Orders</span>
             </div>
+            }
             {
               orders &&
               <div>
+                 <div className={classes.rowContainer} style={{cursor: 'pointer'}} onClick={handleOrders}>
+            <ChatBubbleOutlineIcon style={{color: '#0A47C4'}}/>
+            <span style={{marginLeft: 20, color: '#0A47C4'}}>Orders</span>
+            </div>
                 <div className={classes.subRow}>
                   <div>
                   <RadioButtonUncheckedIcon style={{color: '#FFB946'}}/>
@@ -141,21 +200,32 @@ function App(){
               </div>
             }
             <div style={{ borderBottom: '1px solid #EBEFF2', marginTop:50}}/>
-            <div className={classes.rowContainer} style={{cursor: 'pointer'}}>
-            <MoreHorizIcon/>
-            <span style={{marginLeft: 20}}>Settings</span>
+            {!settings &&
+            <div className={classes.rowContainer} style={{cursor: 'pointer'}} onClick={handleSettings}>
+            <MoreHorizIcon style={{color: '#C2CFE0'}}/>
+            <span style={{marginLeft: 20, color: '#334D6E'}}>Settings</span>
             </div>
+            }
+            {settings &&
+            <div className={classes.rowContainer} style={{cursor: 'pointer'}} onClick={handleSettings}>
+            <MoreHorizIcon style={{color: '#0A47C4'}}/>
+            <span style={{marginLeft: 20, color: '#0A47C4'}}>Settings</span>
+            </div>
+            }
             <div className={classes.rowContainer} style={{cursor: 'pointer'}}>
-            <PowerSettingsNewIcon/>
+            <PowerSettingsNewIcon style={{color: '#C2CFE0'}}/>
             <span style={{marginLeft: 20, color: '#C2CFE0'}}>Logout</span>
             </div>
           </div>
+            <Requests />
       </div>
   );
 }
 const useStyles = makeStyles({
   container: {
     backgroundColor: 'white',
+    display: 'flex',
+    flexDirection: 'row',
   },
   card: {
     display: 'flex',
