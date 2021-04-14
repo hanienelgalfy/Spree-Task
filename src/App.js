@@ -61,12 +61,12 @@ function App(){
                 <div>
                 <div className={classes.subRow}>
                   <div>
-                  <RadioButtonUncheckedIcon/>
+                  <RadioButtonUncheckedIcon style={{color: '#FFB946'}} />
                   </div>
                   <span>Pending</span>
                 </div>
                 <div className={classes.subRow}>
-                <RadioButtonUncheckedIcon/>
+                <RadioButtonUncheckedIcon style={{color: '#2ED47A'}} />
                 <span>Confirmed</span>
               </div>
               <div style={{marginTop: 20}}>
@@ -82,31 +82,31 @@ function App(){
               <div>
                 <div className={classes.subRow}>
                   <div>
-                  <RadioButtonUncheckedIcon/>
+                  <RadioButtonUncheckedIcon style={{color: '#FFB946'}}/>
                   </div>
                   <span>Customers</span>
                 </div>
                 <div className={classes.subRow}>
                   <div>
-                  <RadioButtonUncheckedIcon/>
+                  <RadioButtonUncheckedIcon style={{color: '#885AF8'}}/>
                   </div>
                   <span>Admins</span>
                 </div>
                 <div className={classes.subRow}>
                   <div>
-                  <RadioButtonUncheckedIcon/>
+                  <RadioButtonUncheckedIcon style={{color: '#2ED47A'}}/>
                   </div>
                   <span>Ordering</span>
                 </div>
                 <div className={classes.subRow}>
                   <div>
-                  <RadioButtonUncheckedIcon/>
+                  <RadioButtonUncheckedIcon style={{color: '#F7685B'}}/>
                   </div>
                   <span>WareHouse</span>
                 </div>
                 <div className={classes.subRow}>
                   <div>
-                  <RadioButtonUncheckedIcon/>
+                  <RadioButtonUncheckedIcon style={{color: '#334D6E'}}/>
                   </div>
                   <span>Accounting</span>
                 </div>
@@ -125,13 +125,13 @@ function App(){
               <div>
                 <div className={classes.subRow}>
                   <div>
-                  <RadioButtonUncheckedIcon/>
+                  <RadioButtonUncheckedIcon style={{color: '#FFB946'}}/>
                   </div>
                   <span>Pending</span>
                 </div>
                 <div className={classes.subRow}>
                   <div>
-                  <RadioButtonUncheckedIcon/>
+                  <RadioButtonUncheckedIcon style={{color: '#2ED47A'}}/>
                   </div>
                   <span>Confirmed</span>
                 </div>
