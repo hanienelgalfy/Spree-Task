@@ -40,8 +40,71 @@ return (
     <span className={classes.text}>Date</span>
     </div>
         </div>
-        {/**Requests not sorted*/}
-        {props.sort === 2&&
+        {/**Filtered and sort by ID */}
+        {props.filter === 1 && props.sort === 2 &&
+        <div>
+    {data.sort((a, b) => a.id - b.id).map((item, index) => {return (
+        <div>
+            {item.status === "confirmed" &&
+            <div className={classes.row} key={index}>
+                <div style={{width: '10%', display: 'flex', justifyContent: 'center'}}>
+            <CheckBoxOutlineBlankIcon style={{color: '#E5E5E5'}}/>
+            </div>
+            <div style={{width: '10%', display: 'flex', justifyContent: 'center'}}>
+            <span >#{item.id}</span>
+            </div>
+            <div style={{width: '15%', display: 'flex', justifyContent: 'center'}}>
+            <span>{item.customer.fname} {item.customer.lname}</span>
+            </div>
+            <div style={{width: '15%', display: 'flex', justifyContent: 'center'}}>
+            <span>{item.status}</span>    
+            </div>
+            <div style={{width: '20%', display: 'flex', justifyContent: 'center'}}>
+            <span>{item.supplier}</span>
+            </div>
+            <div style={{width: '20%', display: 'flex', justifyContent: 'center'}}>
+            <span>{dateFormat(item.created_at, " mmmm dS HH:mm, yyyy")}</span>
+            </div>
+            </div>
+            }
+            </div>
+        )})}
+        </div>
+        }
+{/**Filtered and sort by Date */}
+{props.filter === 1 && props.sort === 1 &&
+        <div>
+    {data.sort((a, b) => new Date(...a.created_at.split('/').reverse()) - new Date(...b.created_at.split('/').reverse())).map((item, index) => {return (
+        <div>
+            {item.status === "confirmed" &&
+            <div className={classes.row} key={index}>
+                <div style={{width: '10%', display: 'flex', justifyContent: 'center'}}>
+            <CheckBoxOutlineBlankIcon style={{color: '#E5E5E5'}}/>
+            </div>
+            <div style={{width: '10%', display: 'flex', justifyContent: 'center'}}>
+            <span >#{item.id}</span>
+            </div>
+            <div style={{width: '15%', display: 'flex', justifyContent: 'center'}}>
+            <span>{item.customer.fname} {item.customer.lname}</span>
+            </div>
+            <div style={{width: '15%', display: 'flex', justifyContent: 'center'}}>
+            <span>{item.status}</span>    
+            </div>
+            <div style={{width: '20%', display: 'flex', justifyContent: 'center'}}>
+            <span>{item.supplier}</span>
+            </div>
+            <div style={{width: '20%', display: 'flex', justifyContent: 'center'}}>
+            <span>{dateFormat(item.created_at, " mmmm dS HH:mm, yyyy")}</span>
+            </div>
+            </div>
+            }
+            </div>
+        )})}
+        </div>
+        }
+
+        {/**ALL REQUESTS AND SORTED BY ID */}
+        {props.sort === 2 && props.filter === 2 &&
             <div >
             {data.sort((a, b) => a.id - b.id).map((item, index) => {return (
                 <div>
@@ -92,8 +155,8 @@ return (
             </div>
             )})}
             </div>}
-        {/**Requests sorted */}
-       {props.sort === 1 && <div>
+        {/**Requests sorted by Date*/}
+       {props.sort === 1 && props.filter === 2 && <div>
         {data.sort((a, b) => new Date(...a.created_at.split('/').reverse()) - new Date(...b.created_at.split('/').reverse())).map((item, index) => {return (
                 <div>
                 {item.status === "pending_confirmation" && 

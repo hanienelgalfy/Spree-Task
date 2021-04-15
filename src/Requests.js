@@ -10,7 +10,7 @@ import Table from './Table';
 function Requests(){
     const classes = useStyles();
     const [sort, setSort] = React.useState(2);
-    const [filter, setFilter] = React.useState('');
+    const [filter, setFilter] = React.useState(2);
     const handleSort = (event) => {
         setSort(event.target.value);
       };
@@ -48,12 +48,13 @@ return (
                 </Select>
                 <span>Filters: </span>
                 <Select value={filter} onChange={handleFilter} style={{width: 200}} disableUnderline className={classes.menuItem}>
-                <MenuItem value={1}>Total $2000-3000</MenuItem>
+                <MenuItem value={1}>Confirmed</MenuItem>
+                <MenuItem value={2}>All</MenuItem>
                 </Select>
             </div>
         </div>
         {/**Table */}
-        <Table sort={sort} />
+        <Table sort={sort} filter={filter}/>
     </div>
 )
 };
