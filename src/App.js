@@ -232,6 +232,7 @@ const useStyles = makeStyles({
     flexDirection: 'column',
     backgroundColor: 'white',
     boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
+    zIndex: 10,
     width: 256,
     height: 1050,
   },
