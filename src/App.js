@@ -68,9 +68,11 @@ function App(){
   }
   return (
       <div className={classes.container}>
+            {/**Left Card*/}
         <div className={classes.card} >
           <span className={classes.title}>xo.</span>
           <div className={classes.rowContainer}>
+            {/**Profile Picture */}
             {!picture &&
              <img src={photo} onClick={handleImage}/> 
             }
@@ -82,10 +84,12 @@ function App(){
              <span className={classes.id}>#1253724</span>
              </div>
           </div>
+          {/**Dashboard */}
           <div className={classes.rowContainer}>
             <DashboardIcon style={{color: '#C2CFE0'}}/>
             <span style={{marginLeft: 20, color: '#334D6E'}}>Dashboard</span>
           </div>
+          {/**Requests */}
           {!requests &&
           <div className={classes.rowContainer} style={{cursor: 'pointer'}} onClick={handleRequests}>
             <ViewAgendaIcon style={{color: '#C2CFE0'}}/>
@@ -113,6 +117,7 @@ function App(){
               </div>
               </div>
             }
+            {/**Users*/}
             {!users &&
           <div className={classes.rowContainer} style={{cursor: 'pointer'}} onClick={handleUsers}>
             <PersonOutlineIcon style={{color: '#C2CFE0'}}/>
@@ -157,6 +162,7 @@ function App(){
                 </div>
               </div>
             }
+            {/**Boxes*/}
             {!boxes &&
              <div className={classes.rowContainer} style={{cursor: 'pointer'}} onClick={handleBoxes}>
             <InboxIcon style={{color: '#C2CFE0'}}/>
@@ -169,6 +175,7 @@ function App(){
             <span style={{marginLeft: 20, color: '#0A47C4'}}>Boxes</span>
             </div>
             }
+            {/**Orders*/}
             {!orders &&
             <div className={classes.rowContainer} style={{cursor: 'pointer'}} onClick={handleOrders}>
             <ChatBubbleOutlineIcon style={{color: '#C2CFE0'}}/>
@@ -199,6 +206,7 @@ function App(){
               </div>
               </div>
             }
+            {/**Settings*/}
             <div style={{ borderBottom: '1px solid #EBEFF2', marginTop:50}}/>
             {!settings &&
             <div className={classes.rowContainer} style={{cursor: 'pointer'}} onClick={handleSettings}>
@@ -212,6 +220,7 @@ function App(){
             <span style={{marginLeft: 20, color: '#0A47C4'}}>Settings</span>
             </div>
             }
+            {/**Logout*/}
             <div className={classes.rowContainer} style={{cursor: 'pointer'}}>
             <PowerSettingsNewIcon style={{color: '#C2CFE0'}}/>
             <span style={{marginLeft: 20, color: '#C2CFE0'}}>Logout</span>
