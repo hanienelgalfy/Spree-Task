@@ -9,14 +9,18 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Table from './Table';
 function Requests(){
     const classes = useStyles();
-    const [sort, setSort] = React.useState(2);
-    const [filter, setFilter] = React.useState(2);
+    const [sort, setSort] = useState(2);
+    const [filter, setFilter] = useState(2);
+    const [text, setText] = useState('');
     const handleSort = (event) => {
         setSort(event.target.value);
       };
       const handleFilter = (event) => {
         setFilter(event.target.value);
       };
+      const handleText = (event) => {
+          setText(event.target.value);
+      }
 return (
     <div className={classes.container}>
         {/**Search Bar*/}
@@ -32,6 +36,7 @@ return (
                 </InputAdornment>
                 )
             }}
+            onChange = {handleText}
             className={classes.searchBar}
             />
     </div>
@@ -54,7 +59,7 @@ return (
             </div>
         </div>
         {/**Table */}
-        <Table sort={sort} filter={filter}/>
+        <Table sort={sort} filter={filter} text={text}/>
     </div>
 )
 };
